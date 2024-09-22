@@ -1,0 +1,121 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Burbank Big Condensed', sans-serif;
+    color: #f1c40f; /* Batman yellow */
+    text-shadow: 2px 2px 4px #000; /* Optional shadow for effect */
+    background-image: url('bg.jpg'); /* Replace with your image path */
+    background-size: cover; /* Makes the image cover the entire background */
+    background-position: center; /* Centers the image */
+    background-repeat: no-repeat; /* Prevents the image from repeating */
+}
+
+header {
+    background-color: #00000033;
+    padding: 20px;
+    text-align: center;
+}
+
+.logo {
+    text-shadow: 10px 15px 16px #000000;
+    font-size: 2em;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav a {
+    font-size: 1.1em;
+        color: #f1c40f;
+    text-decoration: none;
+    text-shadow: 5px 5px 6px #000000;
+    transition: all 0.1s ease-in;
+
+}
+
+
+
+nav a:hover{
+    color: #000000;
+    font-size: 1.1em;
+        text-decoration: none;
+    text-shadow: 2px 2px 4px #f1c40f;
+}
+
+
+.card {
+    background-color: #000000d7;
+    border-radius: 10px;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+}
+
+.stats {
+    display: flex;
+    justify-content: space-around;
+}
+
+.stat {
+    font-size: 1.2em;
+}
+
+.analytics-details {
+    margin-top: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+}
+
+input {
+    color:#f1c40f;
+    border: #f1c40f 1.5px solid;
+    background-color:  #000000;
+    margin: 10px 0;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+}
+
+button {
+    padding: 10px;
+    color:#f1c40f;
+    background-color:  #000000;
+    border: none;
+    border: #f1c40f 1.5px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in;
+}
+
+button:hover {
+    color: rgb(0, 0, 0);
+    border: #000000 2px solid;
+
+    background-color: #f1c40f;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #00000044;
+}
+
+.acc-logo{
+    width: 6%;
+    border-radius: 50%;
+    margin-left: 100px;
+}

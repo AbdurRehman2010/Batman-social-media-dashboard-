@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batman Social Media Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Burbank+Big+Condensed:wght@400&display=swap" rel="stylesheet">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">🦇 Batman Dashboard</div>
+        <nav><br>
+            <ul>
+                <li><a href="#overview">Overview</a></li>
+                <li><a href="#analytics">Analytics</a></li>
+                <li><a href="#schedule">Schedule Posts</a></li>
+                <li><a href="#settings">Settings</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section id="overview" class="card">
+            <h2>Account Overview</h2>
+            <br><br>
+            <div class="stats">
+                <img src="logo.jpg" class="acc-logo">
+                <div class="stat">Posts: 255</div>
+                <div class="stat">Followers: 78K</div>
+                <div class="stat">Following: 2</div>
+            </div>
+        </section>
+
+        <section id="analytics" class="card">
+            <h2>Analytics</h2>
+            <canvas id="analyticsChart"></canvas>
+            <div class="analytics-details">
+                <h3>Engagement Insights</h3><br>
+                <p>Total Engagements: 1M</p><br>
+                <p>Average Likes per Post: 1488</p><br>
+                <p>Best Performing Post: "Crime Fighter" with 30K likes</p>
+            </div>
+        </section>
+
+        <section id="schedule" class="card">
+            <h2>Schedule a Post</h2>
+            <form id="postForm">
+                <input type="text" id="postContent" placeholder="What's on your mind?" required>
+                <input type="datetime-local" id="postTime" required>
+                <button type="submit">Schedule Post</button>
+            </form>
+            <div id="scheduledPosts">
+                <h3>Scheduled Posts</h3>
+                <ul id="postsList"></ul>
+            </div>
+        </section>
+
+        <section id="settings" class="card">
+            <h2>Settings</h2><br>
+            <form id="settingsForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+                <label for="password">Password:</label>
+                <input type="password" id="password" placeholder="Change your password">
+                <button type="submit">Save Settings</button>
+            </form>
+            <div class="notifications">
+                <p>Notifications: Enabled</p>
+                <br>
+                <button id="toggleNotifications">Toggle Notifications</button>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Batman. All rights reserved.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const ctx = document.getElementById('analyticsChart').getContext('2d');
+            const analyticsChart = new Chart(ctx, {
+                type: 'line',
+                data: {
+                    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+                    datasets: [{
+                        label: 'Engagement',
+                        data: [120, 190, 300, 200, 350, 400],
+                        backgroundColor: 'rgba(0, 00, 05, 00)',
+                        borderColor: ' #f1c40f',
+                        borderWidth: 2.5,
+                    }]
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        
+            const postForm = document.getElementById('postForm');
+            const postsList = document.getElementById('postsList');
+        
+            postForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const postContent = document.getElementById('postContent').value;
+                const postTime = document.getElementById('postTime').value;
+        
+                const listItem = document.createElement('li');
+                listItem.textContent = `Post: "${postContent}" scheduled for ${new Date(postTime).toLocaleString()}`;
+                postsList.appendChild(listItem);
+        
+                postForm.reset();
+            });
+        
+            const settingsForm = document.getElementById('settingsForm');
+            settingsForm.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Settings saved successfully!');
+            });
+        
+            const toggleNotificationsButton = document.getElementById('toggleNotifications');
+            toggleNotificationsButton.addEventListener('click', () => {
+                const currentStatus = toggleNotificationsButton.innerText === 'Toggle Notifications' ? 'Enabled' : 'Disabled';
+                alert(`Notifications are now ${currentStatus}`);
+                toggleNotificationsButton.innerText = currentStatus === 'Enabled' ? 'Enabled' : 'Disabled';
+            });
+        });
+        
+    </script>
+</body>
+</html>
